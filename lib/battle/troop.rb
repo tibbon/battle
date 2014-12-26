@@ -22,10 +22,19 @@ class Troop
     @y_destination = nil
   end
 
+  def observe_surroundings
+  end
+
+  def go_home(home)
+    self.x_destination = home[:x]
+    self.y_destination = home[:y]
+  end
+
   def to_s
     "Type: #{type}, HP: #{hp},
       Attack: #{attack}, Speed: #{speed}, Vision: #{vision},
-      X: #{x}, Y: #{y}"
+      X: #{x}, Y: #{y}
+      Destination: #{x_destination}, Y: #{y_destination}"
   end
 
   def step_resolve

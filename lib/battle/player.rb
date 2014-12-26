@@ -4,7 +4,7 @@ class Player
   attr_accessor :money, :troops, :camp
 
   INITIAL_SOLDIERS = 1
-  INITIAL_SCOUTS = 2
+  INITIAL_SCOUTS = 0
 
   def initialize(money: 100)
     @money = money

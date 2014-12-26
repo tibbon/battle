@@ -42,11 +42,33 @@ module Game
         troop.y_destination = gets.chomp.to_i
         puts "#{troop.type} headed to #{troop.x_destination}, #{troop.y_destination} at speed of #{troop.speed}"
       end
-      # for each troop at camp
-      # where do they want to go (x, y positions)
+      sleep(1)
     end
 
-    def resolve(_player)
+    def resolve(player)
+      player.troops.each do |troop|
+        # Clunky, but should work to get them moving for now.
+        troop.speed.times do
+          if (troop.y_destination == troop.y) && (troop.x_destination == troop.x)
+            troop.go_home(player.camp.location)
+          end
+          if troop.x_destination > troop.x
+            troop.x += 1
+          end
+          if troop.x_destination < troop.x
+            troop.x -= 1
+          end
+          if troop.y_destination > troop.y
+            troop.y += 1
+          end
+          if troop.y_destination < troop.y
+            troop.y -= 1
+          end
+
+
+          troop.observe_surroundings
+        end
+      end
       puts 'resolve moves'
     end
   end
