@@ -1,0 +1,12 @@
+require 'pry'
+require 'colorize'
+
+require_relative './battle/array'
+require_relative './battle/troop'
+require_relative './battle/soldier'
+require_relative './battle/scout'
+require_relative './battle/location'
+require_relative './battle/world'
+require_relative './battle/camp'
+require_relative './battle/player'
+require_relative './battle/game'

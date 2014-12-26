@@ -1,3 +1,3 @@
-require './lib/adventure'
+require './lib/battle'
 
 Game.run

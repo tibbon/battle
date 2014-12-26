@@ -12,7 +12,7 @@ class World
   def to_s
     @full_map.map do |row|
       row.map {|location| location.tile_type }
-         .join(', ')
+         .join(' ')
     end
   end
 

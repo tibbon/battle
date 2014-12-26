@@ -6,3 +6,4 @@ gem 'pry'
 gem 'simplecov'
 gem 'guard-rspec', require: false
 gem 'rubocop', require: false
+gem 'colorize'

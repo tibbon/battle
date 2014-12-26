@@ -7,6 +7,7 @@ GEM
     celluloid (0.16.0)
       timers (~> 4.0.0)
     coderay (1.1.0)
+    colorize (0.7.5)
     diff-lcs (1.2.5)
     docile (1.1.5)
     ffi (1.9.6)
@@ -73,6 +74,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  colorize
   guard-rspec
   pry
   rspec
