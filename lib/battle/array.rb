@@ -8,16 +8,20 @@ class Array
     end
   end
 
-  def overlay(x, y, new_array, color: 'red')
-    x_distance = (new_array.size - 1) / 2
-    y_distance = (new_array[0].size - 1) / 2
+  # Only works for new_array of odd sizes
+  def overlay(x_center, y_center, new_array, color: 'red')
+    # Offsets to the center of the array
+    x_offset = -(new_array.size - 1) / 2
+    y_offset = -(new_array[0].size - 1) / 2
 
-    (-x_distance..x_distance).each do |x_index|
-      (-y_distance..y_distance).each do |y_index|
-        self[x_index + x][y_index + y] =
-          new_array[x_index][y_index].tile_type.method(color).call
+    # For each item in the new array...
+    new_array.each_with_index do |row, x_index|
+      row.each_with_index do |cell, y_index|
+        self[x_index + x_center + x_offset][y_index + y_center + y_offset] =
+          new_array[x_index][y_index]
       end
     end
+
     self
   end
 end
