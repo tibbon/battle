@@ -2,8 +2,9 @@
 # instances represent a specific location
 # currently this is just used for tiles
 class Location
-  def initialize
-    @terrain = %w( mountain water forest desert ).sample
+  # Seed is there for testing this.
+  def initialize(type=nil, seed: Random)
+    @terrain = type ? '?' : %w( mountain water forest desert ).sample(random: seed)
   end
 
   def tile_type

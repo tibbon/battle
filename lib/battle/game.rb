@@ -31,9 +31,17 @@ module Game
       player.display_reports(world)
     end
 
-    def direct_resources(_player)
-      puts 'direct resources'
+    def direct_resources(player)
+      puts "\n Direct Troops:"
 
+      player.camp_troops.each do |troop|
+        puts "#{troop.type} needs a destination"
+        puts "X destination? "
+        troop.x_destination = gets.chomp.to_i
+        puts "Y destination? "
+        troop.y_destination = gets.chomp.to_i
+        puts "#{troop.type} headed to #{troop.x_destination}, #{troop.y_destination} at speed of #{troop.speed}"
+      end
       # for each troop at camp
       # where do they want to go (x, y positions)
     end

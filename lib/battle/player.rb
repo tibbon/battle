@@ -25,19 +25,23 @@ class Player
   end
 
   def camp_troops
+    troops.select do |troop|
+      troop.x == camp.location[:x] &&
+      troop.y == camp.location[:y]
+    end
   end
 
   def map_near_camp(world)
-    # build a new array, start it as blank
+    # Most of these concerns feel out of place. Too much here
     blank_map = Array.new(World::MAP_X_SIZE) do
-      Array.new(World::MAP_Y_SIZE) { '?' }
+      Array.new(World::MAP_Y_SIZE) { Location.new('?') }
     end
-    # fill in what is known
 
     info = world.full_map.nearby(camp.location[:x], camp.location[:y], 1)
     blank_map = blank_map.overlay(camp.location[:x], camp.location[:y], info)
+
     blank_map.map do |row|
-      row.map { |tile| tile }.join(' ')
+      row.map(&:tile_type).join(' ')
     end
   end
 
