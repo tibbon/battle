@@ -6,8 +6,8 @@ class World
   MAP_X_SIZE = 10
   MAP_Y_SIZE = 10
 
-  def initialize
-    generate_map
+  def initialize(blank: false)
+    generate_map(blank: blank)
   end
 
   # To aid in printing of the map for debugging purposes
@@ -19,9 +19,9 @@ class World
 
   private
 
-  def generate_map
+  def generate_map(blank: false)
     @full_map = Array.new(MAP_X_SIZE) do
-      Array.new(MAP_Y_SIZE) { Location.new }
+      Array.new(MAP_Y_SIZE) { blank ? Location.new(:empty) : Location.new }
     end
   end
 end

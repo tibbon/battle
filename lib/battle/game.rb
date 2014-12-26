@@ -51,6 +51,7 @@ module Game
         troop.speed.times do
           if (troop.y_destination == troop.y) && (troop.x_destination == troop.x)
             troop.go_home(player.camp.location)
+            binding.pry
           end
           if troop.x_destination > troop.x
             troop.x += 1

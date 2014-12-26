@@ -9,7 +9,8 @@ class Troop
                 :x,
                 :y,
                 :x_destination,
-                :y_destination
+                :y_destination,
+                :observed_world
   def initialize(x:, y:, hp: 1, attack: 1, speed: 1, vision: 1)
     @hp = hp
     @x = x
@@ -20,9 +21,13 @@ class Troop
     @type = self.class.to_s.downcase.to_sym
     @x_destination = nil
     @y_destination = nil
+    @observed_world = World.new(blank: true)
   end
 
   def observe_surroundings
+    self.observed_world.full_map =
+      self.observed_world.full_map
+          .overlay(x, y, self.observed_world.full_map.nearby(x, y, vision))
   end
 
   def go_home(home)
