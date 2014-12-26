@@ -1,3 +1,6 @@
+# Game module holds the primary game loop logic
+# and code needed for running the game itself
+# currently too complex
 module Game
   class << self
     attr_accessor :world
@@ -9,7 +12,7 @@ module Game
       @world = World.new
       @players = Array.new(NUM_PLAYERS) { Player.new }
       while game_in_progress
-        @players.each_with_index {|player, index| turn(player, index + 1) }
+        @players.each_with_index { |player, index| turn(player, index + 1) }
       end
     end
 
@@ -28,16 +31,15 @@ module Game
       player.display_reports(world)
     end
 
-
-    def direct_resources(player)
-      puts "direct resources"
+    def direct_resources(_player)
+      puts 'direct resources'
 
       # for each troop at camp
       # where do they want to go (x, y positions)
     end
 
-    def resolve(player)
-      puts "resolve moves"
+    def resolve(_player)
+      puts 'resolve moves'
     end
   end
 end

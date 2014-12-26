@@ -1,6 +1,9 @@
+# Location
+# instances represent a specific location
+# currently this is just used for tiles
 class Location
   def initialize
-    @terrain = ['mountain', 'water', 'forrest', 'desert'].sample
+    @terrain = %w( mountain water forest desert ).sample
   end
 
   def tile_type

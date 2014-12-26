@@ -1,3 +1,5 @@
+# World
+# Used to represent logic for the shared world
 class World
   attr_accessor :full_map
 
@@ -11,15 +13,15 @@ class World
   # To aid in printing of the map for debugging purposes
   def to_s
     @full_map.map do |row|
-      row.map {|location| location.tile_type }
-         .join(' ')
+      row.map(&:tile_type).join(' ')
     end
   end
 
   private
 
   def generate_map
-    @full_map = Array.new(MAP_X_SIZE) {|x| Array.new(MAP_Y_SIZE) {|x| Location.new }}
+    @full_map = Array.new(MAP_X_SIZE) do
+      Array.new(MAP_Y_SIZE) { Location.new }
+    end
   end
 end
-
