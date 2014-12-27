@@ -24,10 +24,10 @@ class Troop
     @observed_world = World.new(blank: true)
   end
 
-  def observe_surroundings
+  def observe_surroundings(world)
     self.observed_world.full_map =
       self.observed_world.full_map
-          .overlay(x, y, self.observed_world.full_map.nearby(x, y, vision))
+          .overlay(x, y, world.full_map.nearby(x, y, vision))
   end
 
   def go_home(home)

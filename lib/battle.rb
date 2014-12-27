@@ -1,4 +1,6 @@
 require 'pry'
+require 'pry-rescue'
+require 'pry-stack_explorer'
 require 'colorize'
 
 require_relative './battle/array'

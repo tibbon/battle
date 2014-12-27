@@ -23,6 +23,7 @@ module Game
       display_info(player)
       direct_resources(player)
       resolve(player)
+      sleep(1)
       puts "\e[H\e[2J" # Clear screen
     end
 
@@ -35,6 +36,9 @@ module Game
       puts "\n Direct Troops:"
 
       player.camp_troops.each do |troop|
+        puts "#{troop.type} delivers a report!"
+        puts troop.observed_world.to_s
+
         puts "#{troop.type} needs a destination"
         puts "X destination? "
         troop.x_destination = gets.chomp.to_i
@@ -42,16 +46,16 @@ module Game
         troop.y_destination = gets.chomp.to_i
         puts "#{troop.type} headed to #{troop.x_destination}, #{troop.y_destination} at speed of #{troop.speed}"
       end
-      sleep(1)
     end
 
     def resolve(player)
       player.troops.each do |troop|
+        troop.observe_surroundings(world)
+
         # Clunky, but should work to get them moving for now.
         troop.speed.times do
           if (troop.y_destination == troop.y) && (troop.x_destination == troop.x)
             troop.go_home(player.camp.location)
-            binding.pry
           end
           if troop.x_destination > troop.x
             troop.x += 1
@@ -65,12 +69,8 @@ module Game
           if troop.y_destination < troop.y
             troop.y -= 1
           end
-
-
-          troop.observe_surroundings
         end
       end
-      puts 'resolve moves'
     end
   end
 end
