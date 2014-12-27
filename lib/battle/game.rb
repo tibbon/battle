@@ -36,9 +36,11 @@ module Game
       puts "\n Direct Troops:"
 
       player.camp_troops.each do |troop|
-        puts "#{troop.type} delivers a report!"
-        puts troop.observed_world.to_s
-        troop.observed_world.clear
+        unless (troop.observed_world.full_map.all? {|x| x.all? {|y| y.tile_type == '?'}})
+          puts "#{troop.type} delivers a report!"
+          puts troop.observed_world.to_s
+          troop.observed_world.clear
+        end
 
         puts "#{troop.type} needs a destination"
         puts "X destination? "
