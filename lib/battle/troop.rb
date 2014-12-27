@@ -45,5 +45,6 @@ class Troop
   end
 
   def step_resolve
+    true
   end
 end

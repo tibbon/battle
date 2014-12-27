@@ -43,4 +43,18 @@ RSpec.describe Troop do
       expect(@troop.go_home({ x: 10, y: 10 })).to eq @troop
     end
   end
+
+  describe '#to_s' do
+    it 'returns a string representing the troop' do
+      expected_string = "Type: troop, HP: 1,\n      Attack: 1, Speed: 1, Vision: 1,\n      X: 1, Y: 1\n      Destination: , Y: "
+      expect(@troop.to_s).to be_a String
+      expect(@troop.to_s).to eq expected_string
+    end
+  end
+
+  describe '#step_resolve' do
+    it 'does nothing' do
+      expect(@troop.step_resolve).to be true
+    end
+  end
 end
