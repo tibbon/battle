@@ -3,18 +3,21 @@
 class World
   attr_accessor :full_map
 
-  MAP_X_SIZE = 10
-  MAP_Y_SIZE = 10
+  MAP_X_SIZE = 20
+  MAP_Y_SIZE = 20
 
   def initialize(blank: false)
     generate_map(blank: blank)
   end
 
-  # To aid in printing of the map for debugging purposes
   def to_s
     @full_map.map do |row|
       row.map(&:tile_type).join(' ')
     end
+  end
+
+  def clear
+    generate_map(blank: blank)
   end
 
   private

@@ -38,6 +38,7 @@ module Game
       player.camp_troops.each do |troop|
         puts "#{troop.type} delivers a report!"
         puts troop.observed_world.to_s
+        troop.observed_world.clear
 
         puts "#{troop.type} needs a destination"
         puts "X destination? "
