@@ -34,6 +34,7 @@ class Troop
   def go_home(home)
     self.x_destination = home[:x]
     self.y_destination = home[:y]
+    self
   end
 
   def to_s
