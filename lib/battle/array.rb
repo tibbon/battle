@@ -26,9 +26,4 @@ class Array
   end
 end
 
-# A helper class for making the sample non-random
-class NotAtAllRandom
-  def self.rand x=0
-    0
-  end
-end
+

@@ -11,6 +11,7 @@ class Troop
                 :x_destination,
                 :y_destination,
                 :observed_world
+
   def initialize(x:, y:, hp: 1, attack: 1, speed: 1, vision: 1)
     @hp = hp
     @x = x
@@ -25,8 +26,8 @@ class Troop
   end
 
   def observe_surroundings(world)
-    self.observed_world.full_map =
-      self.observed_world.full_map
+    observed_world.full_map =
+      observed_world.full_map
           .overlay(x, y, world.full_map.nearby(x, y, vision))
   end
 

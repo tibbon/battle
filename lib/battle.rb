@@ -4,6 +4,7 @@ require 'pry-stack_explorer'
 require 'colorize'
 
 require_relative './battle/array'
+require_relative './battle/not_random'
 require_relative './battle/troop'
 require_relative './battle/soldier'
 require_relative './battle/scout'

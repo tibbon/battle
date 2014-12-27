@@ -6,9 +6,9 @@ class Camp
   @@camp_number = 0
   START_LOCATIONS = [
     { x: 1, y: 1 },
-    { x: World::MAP_X_SIZE - 1, y: World::MAP_Y_SIZE - 1 },
-    { x: World::MAP_X_SIZE - 1, y: 1 },
-    { x: 1, y: World::MAP_Y_SIZE - 1 }
+    { x: World::MAP_X_SIZE - 2, y: World::MAP_Y_SIZE - 2 },
+    { x: World::MAP_X_SIZE - 2, y: 1 },
+    { x: 1, y: World::MAP_Y_SIZE - 2 }
   ]
   def initialize
     @location = START_LOCATIONS[@@camp_number]

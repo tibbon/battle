@@ -7,7 +7,7 @@ RSpec.describe Array do
     # Generates a 10x10 2D array with numbers 0..100
     # as the contents
     @two_d_array = Array.new(10) do |x|
-      (x*10..x*10+10).to_a
+      (x * 10..x * 10 + 10).to_a
     end
 
     @near_one = [
@@ -15,6 +15,7 @@ RSpec.describe Array do
                   [32, 33, 34],
                   [42, 43, 44]
                 ]
+
     @near_two = [
                   [11, 12, 13, 14, 15],
                   [21, 22, 23, 24, 25],
@@ -37,8 +38,8 @@ RSpec.describe Array do
                       ]
   end
 
-  describe "#nearby" do
-    it "returns an array of the points nearby" do
+  describe '#nearby' do
+    it 'returns an array of the points nearby' do
       expect(@two_d_array).to be_an Array
       expect(@two_d_array.nearby(3, 3, 1)).to be_an Array
       expect(@two_d_array.nearby(3, 3, 1)).to eq @near_one

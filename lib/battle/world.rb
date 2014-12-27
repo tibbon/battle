@@ -3,8 +3,8 @@
 class World
   attr_accessor :full_map
 
-  MAP_X_SIZE = 30
-  MAP_Y_SIZE = 40
+  MAP_X_SIZE = 10
+  MAP_Y_SIZE = 10
 
   def initialize(blank: false)
     generate_map(blank: blank)
